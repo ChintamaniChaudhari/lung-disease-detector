@@ -3,7 +3,6 @@ from tensorflow.keras.models import load_model
 from PIL import Image
 import numpy as np
 import plotly.graph_objects as go
-import streamlit as st
 import matplotlib.pyplot as plt
 
 from updated_util import classify, set_background
@@ -63,9 +62,6 @@ with open("converted_keras/labels.txt", 'r') as f:
 if file is not None:
     image = Image.open(file).convert('RGB')
     st.image(image, use_column_width=True)
-
-    # classify image
-    class_name, conf_score, all_preds = classify(image, model, class_names)
 
     st.subheader("Output")
 
