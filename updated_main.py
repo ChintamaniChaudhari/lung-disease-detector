@@ -52,10 +52,10 @@ st.header('Please upload a chest X-ray image')
 file = st.file_uploader('', type=['jpeg', 'jpg', 'png'])
 
 # load classifier
-model = load_model("D:\PBL2\converted_keras\keras_model.h5")
+model = load_model("converted_keras/keras_model.h5'")
 
 # load class names
-with open("labels.txt", 'r') as f:
+with open("converted_keras/labels.txt", 'r') as f:
     class_names = [a[:-1].split(' ')[1] for a in f.readlines()]
     f.close()
 
