@@ -36,7 +36,7 @@ def show_output_chart(predictions, class_names):
     st.plotly_chart(fig, use_container_width=True)
 
 
-set_background("keras_model.h5")
+set_background("BackGround.jpg")
 
 with st.container():
     st.markdown("<div class='block-container'>", unsafe_allow_html=True)
