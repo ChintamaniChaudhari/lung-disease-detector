@@ -63,12 +63,7 @@ DepthwiseConv2D.__init__ = patched_init
 
 
 # load classifier
-#model = load_model("converted_keras/keras_model.h5")
-try:
-    model = load_model("converted_keras/keras_model.h5")
-except Exception as e:
-    st.error(f"Error loading model: {e}")
-
+model = load_model("converted_keras/keras_model.h5")
 
 # load class names
 with open("converted_keras/labels.txt", 'r') as f:
