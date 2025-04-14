@@ -7,6 +7,9 @@ import matplotlib.pyplot as plt
 
 from updated_util import classify, set_background
 
+set_background("BackGround.jpg")
+st.info("Trying to load background image...")
+
 def show_output_chart(predictions, class_names):
     colors = ['#fddccf', '#fce4ec', '#8e44ad', '#d6eaf8', '#fddccf']  # customize as needed
 
@@ -35,8 +38,6 @@ def show_output_chart(predictions, class_names):
 
     st.plotly_chart(fig, use_container_width=True)
 
-
-set_background("BackGround.jpg")
 
 with st.container():
     st.markdown("<div class='block-container'>", unsafe_allow_html=True)
