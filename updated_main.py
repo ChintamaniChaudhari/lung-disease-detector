@@ -78,10 +78,10 @@ if file is not None:
     st.subheader("Output")
 
     # write classification
+    class_name, conf_score, all_preds = classify(image, model, class_names)
     st.write("## {}".format(class_name))
     st.write("### score: {}%".format(int(conf_score * 1000) / 10))
-    class_name, conf_score, all_preds = classify(image, model, class_names)
-
+    
     # show predicted label
     st.write("### Predicted: `{}` with {:.2f}% confidence".format(class_name, conf_score * 100))
 
