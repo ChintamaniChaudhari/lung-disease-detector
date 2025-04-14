@@ -50,6 +50,18 @@ st.header('Please upload a chest X-ray image')
 # upload file
 file = st.file_uploader('', type=['jpeg', 'jpg', 'png'])
 
+from tensorflow.keras.layers import DepthwiseConv2D
+
+# Patch to remove 'groups' argument for compatibility
+original_init = DepthwiseConv2D.__init__
+
+def patched_init(self, *args, **kwargs):
+    kwargs.pop('groups', None)  # Ignore 'groups' if present
+    original_init(self, *args, **kwargs)
+
+DepthwiseConv2D.__init__ = patched_init
+
+
 # load classifier
 #model = load_model("converted_keras/keras_model.h5")
 try:
