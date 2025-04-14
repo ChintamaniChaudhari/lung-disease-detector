@@ -51,7 +51,12 @@ st.header('Please upload a chest X-ray image')
 file = st.file_uploader('', type=['jpeg', 'jpg', 'png'])
 
 # load classifier
-model = load_model("converted_keras/keras_model.h5")
+#model = load_model("converted_keras/keras_model.h5")
+try:
+    model = load_model("converted_keras/keras_model.h5")
+except Exception as e:
+    st.error(f"Error loading model: {e}")
+
 
 # load class names
 with open("converted_keras/labels.txt", 'r') as f:
