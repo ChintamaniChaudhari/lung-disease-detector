@@ -1,21 +1,22 @@
+
 import base64
 import streamlit as st
 from PIL import ImageOps, Image
 import numpy as np
 
 def set_background(image_file):
-    mime_type, _ = mimetypes.guess_type(image_file)
-    with open(image_file, "rb") as image:
-        encoded = base64.b64encode(image.read()).decode()
-    css = f"""
-    <style>
-    [data-testid="stAppViewContainer"] > .main {{
-        background-image: url("data:{mime_type};base64,{encoded}");
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-    }}
+    with open(image_file, "rb") as f:
+        img_data = f.read()
+    b64_encoded = base64.b64encode(img_data).decode()
+    style = f"""
+        <style>
+        [data-testid="stAppViewContainer"] > .main {{
+            background-image: url("data:image/png;base64,{b64_encoded}");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }}
+
         [data-testid="stAppViewContainer"] > .main::before {{
             content: "";
             position: absolute;
