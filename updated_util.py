@@ -1,4 +1,3 @@
-
 import base64
 import streamlit as st
 from PIL import ImageOps, Image
@@ -11,7 +10,7 @@ def set_background(image_file):
     style = f"""
         <style>
         [data-testid="stAppViewContainer"] > .main {{
-            background-image: url("data:image/png;base64,{b64_encoded}");
+            background-image: url("data:image/jpeg;base64,{b64_encoded}");
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
